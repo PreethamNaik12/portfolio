@@ -12,7 +12,7 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 const pages = ['home', 'projects', 'contact', 'about'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -20,6 +20,8 @@ const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 function Navbar() {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+    const location = useLocation();    
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -37,7 +39,7 @@ function Navbar() {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position={location.pathname === '/home' ? 'absolute': 'static'} sx={{ backgroundColor: location.pathname === '/home' ? 'transparent' : 'primary' }}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -52,7 +54,7 @@ function Navbar() {
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
+                            color: location.pathname === '/home' ? 'white' : 'blue',
                             textDecoration: 'none',
                         }}
                     >
@@ -66,7 +68,7 @@ function Navbar() {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
+                            color= {location.pathname === '/home' ? 'white' : 'blue'}
                         >
                             <MenuIcon />
                         </IconButton>

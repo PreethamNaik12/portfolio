@@ -8,10 +8,10 @@ const Home = () => {
     const [currentStage, setCurrentStage] = useState(1);
     const [isRotating, setIsRotating] = useState(false)
 
-    const adjustIslandScreenSize = () => {
+    const adjustIslandScreenSize = () => { //adjust the island size based on the screen size
         let screenScale = null;
         let screenPosition = [0, -6.5, -43];
-        let rotation = [0.1, 4.7, 0]
+        let rotation = [0.15, 4.7, 0]
 
         if (window.innerWidth < 768) {
             screenScale = [0.9, 0.9, 0.9];
@@ -23,9 +23,8 @@ const Home = () => {
         return [screenScale, screenPosition, rotation];
     }
 
-    const [islandScale, islandPosition, islandRotation] = adjustIslandScreenSize();
-
-    const adjustPlaneScreenSize = () => {
+    
+    const adjustPlaneScreenSize = () => {//adjust the plane size based on the screen size
         let screenScale, screenPosition;
 
         if (window.innerWidth < 768) {
@@ -39,7 +38,8 @@ const Home = () => {
 
         return [screenScale, screenPosition];
     }
-
+    
+    const [islandScale, islandPosition, islandRotation] = adjustIslandScreenSize();
     const [planeScale, planePosition] = adjustPlaneScreenSize();
 
     return (

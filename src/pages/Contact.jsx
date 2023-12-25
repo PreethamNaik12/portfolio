@@ -1,76 +1,91 @@
-import { Container } from '@mui/material';
-import { useForm } from 'react-hook-form';
-
-import { TextField, Button, Select, MenuItem } from '@mui/material';
-
+import { Container, Button, TextField, Grid, Box } from '@mui/material';
+import { useForm, Controller } from 'react-hook-form';
+import { useState } from 'react';
+import emailjs from '@emailjs/browser';
+import { useNavigate } from 'react-router-dom';
+import { Toast } from '../components';
 
 const Contact = () => {
-    const {
-        register,
-        handleSubmit,
-        formState: { errors },
-    } = useForm();
+    const { control, handleSubmit, formState: { errors }, reset } = useForm();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const onSubmit = (data) => console.log(data);
+    const navigate = useNavigate();
+
+    const onSubmit = (data, e) => {
+        e.preventDefault();
+        setIsLoading(true);
+        emailjs.send(
+            import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+            import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+            {
+                from_name: data.name,
+                message: data.message,
+                from_email: data.email,
+            },
+            import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+        ).then(() => {
+            setIsLoading(false);
+            // TODO: Add a toast notification
+            reset();
+            navigate('/home');
+        }).catch(() => {
+            setIsLoading(false);
+            //TODO: Add a toast notification
+        })
+
+        console.log(data);
+        setIsLoading(false);
+        reset();
+    };
+
+    const handleBlur = () => { };
+    const handleFocus = () => { };
+
+
 
     return (
-        <Container maxWidth="sm" sx={{ p: 3 }}>
-            <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'grid' }}>
-                <TextField
-                    {...register('name', { required: true, minLength: 10 })}
-                    label="Name"
-                    error={errors.name ? true : false}
-                    helperText={
-                        errors.name
-                            ? 'First name is required and must be at least 10 characters long'
-                            : ''
-                    }
-                    sx={{ p: 2, label: { color: 'primary.main', p: 2 } }}
-                    variant="filled" // Change the variant to "outlined"
-                />
-
-                <TextField
-                    {...register('email', { required: true, pattern: /^\S+@\S+$/i })}
-                    label="Email"
-                    error={errors.email ? true : false}
-                    helperText={
-                        errors.email
-                            ? 'Email is required and must be a valid email address'
-                            : ''
-                    }
-                    sx={{ p: 2, label: { color: 'primary.main', p: 2 } }}
-                    variant="filled" // Change the variant to "outlined"
-                />
-
-                <TextField
-                    {...register('phoneNumber', { required: true, pattern: /^\d{10}$/ })}
-                    label="Phone Number"
-                    error={errors.phoneNumber ? true : false}
-                    helperText={
-                        errors.phoneNumber
-                            ? 'Phone number is required and must be a 10-digit number'
-                            : ''
-                    }
-                    sx={{ p: 2, label: { color: 'primary.main', p: 2 } }}
-                    variant="filled" // Change the variant to "outlined"
-                />
-
-                <Select
-                    {...register('gender')}
-                    sx={{ m: 2,label: { color: 'primary.main' } }}
-                    variant="filled"
-                    label="Age"
-                >
-                    <MenuItem value="female">Female</MenuItem>
-                    <MenuItem value="male">Male</MenuItem>
-                    <MenuItem value="other">Other</MenuItem>
-                </Select>
-
-                <Button type="submit" variant="contained" color="primary" sx={{ m: 2 }}>
-                    Submit
-                </Button>
+        <Container>
+            <form onSubmit={handleSubmit(onSubmit)}>
+                <Grid container spacing={3}>
+                    <Grid item xs={12}>
+                        <Controller
+                            name="name"
+                            control={control}
+                            rules={{ required: 'Name is required' }}
+                            render={({ field }) => <TextField label="Name" fullWidth {...field} error={!!errors.name} helperText={errors.name?.message} />}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Controller
+                            name="email"
+                            control={control}
+                            rules={{
+                                required: 'Email is required',
+                                pattern: {
+                                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                                    message: 'Invalid email address'
+                                }
+                            }}
+                            render={({ field }) => <TextField label="Email" fullWidth {...field} error={!!errors.email} helperText={errors.email?.message} />}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Controller
+                            name="message"
+                            control={control}
+                            rules={{ required: 'Message is required' }}
+                            render={({ field }) => <TextField label="Message" multiline rows={4} fullWidth {...field} error={!!errors.message} helperText={errors.message?.message} />}
+                        />
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button type="submit" variant="contained" color="primary" disabled={isLoading}>
+                            {isLoading ? 'Loading...' : 'Submit'}
+                        </Button>
+                    </Grid>
+                </Grid>
             </form>
-        </Container >
+            <Toast />
+        </Container>
     );
 };
 
