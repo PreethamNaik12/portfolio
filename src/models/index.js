@@ -1,4 +1,4 @@
-import Island from "./island";
+import Island from "./Island";
 import Sky from "./Sky";
 import Bird from "./Bird";
 import Plane from "./Plane";
