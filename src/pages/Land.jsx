@@ -5,13 +5,13 @@ import { useEffect, useState } from 'react';
 import EastIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 // import React from 'react';
 const imageUrls = [
-    '../../public/worker.png',
-    '../../public/worker(1).png',
-    '../../public/worker(2).png',
-    '../../public/worker(3).png',
-    '../../public/worker(4).png',
-    '../../public/customer-service.png',
-    '../../public/coffee-shop.png',
+    'worker.png',
+    'worker(1).png',
+    'worker(2).png',
+    'worker(3).png',
+    'worker(4).png',
+    'customer-service.png',
+    'coffee-shop.png',
     // Add more image URLs as needed
 ];
 
@@ -67,7 +67,7 @@ const Land = () => {
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                     <img
-                        src={isHovering ? '../../public/work-from-home.png': imageUrls[currentImageIndex]}
+                        src={isHovering ? 'work-from-home.png': imageUrls[currentImageIndex]}
                         alt={`Image ${currentImageIndex}`}
                         style={{ width: '220px', marginTop: '2em' }}
                         onMouseEnter={() => setIsHovering(true)}
