@@ -4,19 +4,9 @@ import { Box } from '@mui/material';
 import { useEffect, useState } from 'react';
 import EastIcon from '@mui/icons-material/ArrowCircleRightOutlined';
 import AutoAwesomeIcon from '@mui/icons-material/SettingsSuggest';
-import GitHubIcon from '@mui/icons-material/GitHub';
-// import React from 'react';
+import {animateScroll as scroll} from 'react-scroll';
+import { socialIcons, imageUrls, projects} from '../constants';
 
-const imageUrls = [
-    'worker.png',
-    'worker(1).png',
-    'worker(2).png',
-    'worker(3).png',
-    'worker(4).png',
-    'customer-service.png',
-    'coffee-shop.png',
-    // Add more image URLs as needed
-];
 
 const AboutMe = () => (
     <Box sx={{display:'flex', my:2}}>
@@ -26,52 +16,52 @@ const AboutMe = () => (
             Embark on a journey through my path as a university student at NITK Surathkal. A self-taught web developer with an insatiable curiosity for machine learning, I bring a fusion of academic rigor and creative innovation to every project I undertake. With a dedication to continuous learning and a drive to explore the frontiers of technology, I thrive on pushing boundaries and exceeding expectations. Whether it's crafting captivating designs, diving deep into data science, or architecting cutting-edge solutions, I'm committed to making a meaningful impact through my work.
             </Typography>
         </Box>
-        <img src="/jake-nackos-Ga7aBzN7qDw-unsplash.jpg" alt="" style={{width:'400px', borderRadius:'10px', mx:2}} />
+        <img src="/profile-pic.png" alt="" style={{width:'400px', borderRadius:'10px', mx:2}} />
     </Box>
 )
+
 const MyWork = () => (
     <Box sx={{backgroundColor:'#f0f0f0', minHeight:'50vh', maxWidth:'75%', borderRadius:'13px', mb:4}}>
         <Button disabled variant="plain" size='lg' startDecorator={<AutoAwesomeIcon color="primary" sx={{fontSize:'50px'}} />} sx={{m:1}} />
-        <Card variant="outlined" sx={{mx:3, my:2}}>
-            <CardContent>
-                <Typography level="h5"  sx={{fontSize:'20px', fontWeight:600}}>Project 1</Typography>
-                <Typography>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis consequatur dignissimos, laboriosam alias, accusamus impedit, sint ut deleniti quis quae atque. Sequi, in explicabo. Cupiditate corporis ipsum iusto magnam accusamus.
-                </Typography>
-                <Box sx={{mt:1}}>
-                    <Button variant='soft' sx={{mr:1}}>Button</Button>
-                    <Button sx={{mr:1}}>Button</Button>
-                </Box>
-            </CardContent>
-        </Card>
-        <Card variant="outlined" sx={{mx:3, my:2}}>
-            <CardContent>
-                <Typography level="h5"  sx={{fontSize:'20px', fontWeight:600}}>Project 1</Typography>
-                <Typography>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis consequatur dignissimos, laboriosam alias, accusamus impedit, sint ut deleniti quis quae atque. Sequi, in explicabo. Cupiditate corporis ipsum iusto magnam accusamus.
-                </Typography>
-                <Box sx={{mt:1}}>
-                    <Button variant='soft' sx={{mr:1}}>Button</Button>
-                    <Button sx={{mr:1}}>Button</Button>
-                </Box>
-            </CardContent>
-        </Card>
+        {projects.map((value, index) => (
+            <Card variant="outlined" sx={{mx:3, my:2}} key={index}>
+                <CardContent>
+                    <Typography level="h5"  sx={{fontSize:'20px', fontWeight:600}}>{value.title}</Typography>
+                    <Typography>
+                        {value.description}
+                    </Typography>
+                    <Box sx={{mt:1}}>
+                        <Button variant='soft' onClick={() => window.open(value.repo, '_blank')} sx={{mr:1}}>Source Code</Button>
+                        <Button sx={{mr:1}} onClick={() => window.open(value.link, '_blank')}>Visit</Button>
+                    </Box>
+                </CardContent>
+            </Card>
+        ))}
     </Box>
 )
 
 const Contact = () => (
-    <Box>
-        <Typography variant="h2" color="initial" sx={{fontWeight:'600',fontFamily:'Gabarito'}}>Get in Touch</Typography>
-        <Box sx={{display:'flex',flexDirection:'column' , justifyContent:'center', mt:2}}>
-            <Button variant='soft' startDecorator={<GitHubIcon/>} size='lg' sx={{m:2}}>GitHub</Button>
-            <Button variant='soft' startDecorator={<GitHubIcon/>} size='lg' sx={{m:2}}>LinkedIn</Button>
-            <Button variant='soft' startDecorator={<GitHubIcon/>} size='lg' sx={{m:2}}>Mail</Button>
-        </Box>
+    <Box sx={{my:5}}>
+        {socialIcons.map((value, index) => (
+            <img
+                key={index}
+                src={value.link}
+                alt={value.alt}
+                onClick={() => window.open(value.href, '_blank')}
+                onMouseEnter={(e) => e.target.style.cursor = 'pointer'}
+                style={{
+                    width: '100px',
+                    borderRadius: '10px',
+                    marginLeft: '28px',
+                    marginRight: '28px'
+                }}
+            />
+        ))}
     </Box>
+
 )
 
 const Land = () => {
-
     // State to manage the index of the currently displayed image
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
@@ -89,6 +79,20 @@ const Land = () => {
     // State to manage the image displayed on hover
     const [isHovering, setIsHovering] = useState(false);
 
+    // Scroll functions
+    const scrollToBottom = () => {
+        scroll.scrollTo(600);
+    }
+    const scrollToAbout = () => {
+        scroll.scrollTo(1100);
+    }
+    const scrollABit = () => {
+        scroll.scrollTo(200);
+    }
+    const ScrollToTop = () => {
+        scroll.scrollToTop();
+    }
+
     return (
         <Container maxWidth='xl'>
             <Box sx={{
@@ -103,12 +107,12 @@ const Land = () => {
                 </Typography>
                 <Typography variant="h5" sx={{textAlign: 'center', fontFamily:'Gabarito', mt:2}}>
                     Hey there! I'm Preetham,<br/> a programming enthusiast weaving digital wonders.
-                </Typography>Typ
+                </Typography>
             
                 <Box sx={{display:'flex', mt:2}}>
                     {/* <Button variant="solid">Solid</Button> */}
-                    <Button variant="solid"  sx={{mr:3}}>My Projects</Button>
-                    <Button variant="plain" endDecorator={<EastIcon/>}>About Me</Button>
+                    <Button variant="solid"  sx={{mr:3}} onClick={scrollToAbout} >My Projects</Button>
+                    <Button variant="plain" endDecorator={<EastIcon/>} onClick={scrollToBottom}>About Me</Button>
                     {/* <Button variant="plain">Plain</Button> */}
                 </Box>
                 <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, marginBottom:'3em' }}>
@@ -120,7 +124,7 @@ const Land = () => {
                         onMouseLeave={() => setIsHovering(false)}
                     />
                 </Box>
-                <img src='/scroll-bar.png' style={{width:'40px'}}/>
+                <img src='/scroll-bar.png' onClick={scrollABit} style={{width:'40px'}}/>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                 <AboutMe/>
@@ -132,9 +136,13 @@ const Land = () => {
                 <MyWork/>
             </Box>
 
+            <Typography variant="h2" color="initial" sx={{fontWeight:'600',fontFamily:'Gabarito', textAlign:'center', ml:5}}>Let's Connect</Typography>
+
             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
                 <Contact/>
             </Box>
+
+            <Button variant="soft" onClick={ScrollToTop} sx={{float:'right', mb:1}}>Back to Top</Button>
         </Container>
     );
 };
