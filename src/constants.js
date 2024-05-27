@@ -9,24 +9,36 @@ export const imageUrls = [
     // Add more image URLs as needed
 ];
 export const socialIcons = [
-    { link: '/github.png', alt: 'github', href: 'https://github.com/PreethamNaik12' },
     { link: '/linkedin.png', alt: 'linkedin', href: 'https://www.linkedin.com/in/preetham-g-aa4652229/' },
+    { link: '/github.png', alt: 'github', href: 'https://github.com/PreethamNaik12' },
     { link: '/twitter.png', alt: 'twitter', href: 'https://twitter.com' },
     { link: '/instagram.png', alt: 'instagram', href: 'https://www.instagram.com/_preethamnaik_/' },
     // Add more image URLs as needed
 ];
 
-export const projects = [
-    {
-        title: 'Parashu ',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis consequatur dignissimos, laboriosam alias, accusamus impedit, sint ut deleniti quis quae atque. Sequi, in explicabo. Cupiditate corporis ipsum iusto magnam accusamus.',
-        repo: 'https://github.com',
-        live: 'https://github.com'
-    },
-    {
-        title: 'Project 2',
-        description: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis consequatur dignissimos, laboriosam alias, accusamus impedit, sint ut deleniti quis quae atque. Sequi, in explicabo. Cupiditate corporis ipsum iusto magnam accusamus.',
-        buttons: ['Button', 'Button']
-    },
-    // Add more projects as needed
+
+export const langs = [
+    ['/html.png', 'HTML'],
+    ['/css-3.png', 'CSS'],
+    ['/js.png', 'JavaScript'],
+    ['/c++.png', 'C++'],
+    ['/python.png', 'Python'],
+];
+
+export const frameworks = [
+    ['/react.png', 'ReactJS'],
+    ['/nextjs.png', 'NextJS'],
+    ['/ror.png', 'Rails'],
+    ['/threejs.png', 'ThreeJS'],
+    ['/mui.png', 'MaterialUI'],
+    ['/bootstrap.png', 'Bootstrap'],
+]
+export const tools = [
+    ['/chatgpt.png', 'ChatGPT'],
+    ['/vscode.webp', 'VS Code'],
+    ['/github.png', 'GitHub'],
+    ['/postman.png', 'Postman'],
+    ['/postgre.png', 'PostgreSQL'],
+    ['/git.png', 'Git'],
+    // ['/vite.png', 'Vite'],
 ];
