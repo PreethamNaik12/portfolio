@@ -11,7 +11,7 @@ export const imageUrls = [
 export const socialIcons = [
     { link: '/linkedin.png', alt: 'linkedin', href: 'https://www.linkedin.com/in/preetham-g-aa4652229/' },
     { link: '/github.png', alt: 'github', href: 'https://github.com/PreethamNaik12' },
-    { link: '/twitter.png', alt: 'twitter', href: 'https://twitter.com' },
+    { link: '/twitter.png', alt: 'twitter', href: 'https://x.com/GitNaik' },
     { link: '/instagram.png', alt: 'instagram', href: 'https://www.instagram.com/_preethamnaik_/' },
     // Add more image URLs as needed
 ];
