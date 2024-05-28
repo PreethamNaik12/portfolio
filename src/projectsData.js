@@ -5,7 +5,7 @@ const projects = [
         live: 'https://parashu.vercel.app',
         type: 'Front-End Development',
         time: '8 Months Ago',
-        skills: 'ReactJS, MaterialUI, PostMan, ChatGPT APIs',
+        skills: 'ReactJS, MaterialUI, Postman, ChatGPT API',
         image: 'https://parashureveal.vercel.app/static/media/context.820970ef45a79e389639.jpg'
     },
     {
@@ -17,15 +17,15 @@ const projects = [
         skills: 'Rails, Bootstrap, Javascript',
         image: '/crf.png'
     },
-    {
-        title: 'Faculty Recruitment Portal for NITK',
-        repo: '/',
-        live: 'https://frp.nitk.ac.in',
-        type: 'Full-Stack Development',
-        time: '6 Months Ago',
-        skills: 'Rails, Bootstrap, Javascript',
-        image: '/frp.avif'
-    },
+    // {
+    //     title: 'Faculty Recruitment Portal for NITK',
+    //     repo: '/',
+    //     live: 'https://frp.nitk.ac.in',
+    //     type: 'Full-Stack Development',
+    //     time: '6 Months Ago',
+    //     skills: 'Rails, Bootstrap, Javascript',
+    //     image: '/frp.avif'
+    // },
     {
         title: 'Incident NITK',
         repo: 'https://github.com/PreethamNaik12/Incident-2024',
@@ -40,7 +40,7 @@ const projects = [
         repo: '/',
         live: 'https://engineer.nitk.ac.in',
         type: 'Full-Stack Development',
-        time: '3 Months Ago',
+        time: '8 Months Ago',
         skills: 'ReactJS, MaterialUI',
         image: '/engi.png'
     },
@@ -50,7 +50,7 @@ const projects = [
         live: 'https://preethpoll.vercel.app/',
         type: 'Full-Stack Development',
         time: '6 Months Ago',
-        skills: 'ReactJS, Postgres, Recharts, MaterialUI',
+        skills: 'ReactJS, PostgreSQL, Recharts, MaterialUI',
         image: '/poll.png'
     },
     {
@@ -59,7 +59,7 @@ const projects = [
         live: 'https://discord.com/api/oauth2/authorize?client_id=883118988518082324&permissions=8&scope=bot',
         type: 'Full-Stack Development',
         time: '11 Months Ago',
-        skills: 'ChatGPT APIs, Replit',
+        skills: 'ChatGPT API, Replit',
         image: '/discordGPT.jpg'
     },
     // Add more projects as needed

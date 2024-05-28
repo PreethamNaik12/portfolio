@@ -5,6 +5,7 @@ import CardContent from '@mui/joy/CardContent';
 import CardOverflow from '@mui/joy/CardOverflow';
 import Divider from '@mui/joy/Divider';
 import Typography from '@mui/joy/Typography';
+import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
 
 export default function OverflowCard(props) {
     return (
@@ -26,9 +27,9 @@ export default function OverflowCard(props) {
             <CardContent>
                 <Typography level="title-md"
                     onClick={() => window.open(props.data.live, '_blank')}
-                    sx={{cursor:'pointer', color:'black', textDecoration:'none', fontWeight:'650'}}
+                    sx={{cursor:'pointer', color:'black', textDecoration:'none', fontWeight:'650', }}
                     >
-                {props.data.title}</Typography>
+                {props.data.title}{""}<ArrowOutwardIcon fontSize='sm' /></Typography>
                 <Typography level="body-sm">{props.data.skills}</Typography>
             </CardContent>
             <CardOverflow variant="soft" sx={{ bgcolor: 'background.level1' }}>

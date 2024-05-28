@@ -1,11 +1,11 @@
+import { Card, CardContent } from '@mui/joy';
 import { Button, CardActions, Typography } from '@mui/material'
-import { Card, CardContent } from '@mui/material';
 import { Link } from 'react-router-dom';
 
 // eslint-disable-next-line 
 const InfoBox = ({ text, link, btnText }) => {
     return (
-        <Card sx={{ width: { xs: '90%', sm: '40%', md: '30%' }, bgcolor: 'primary.main', position: 'fixed', top: '28%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999 }}>
+        <Card variant='solid' color='primary' sx={{ width: { xs: '90%', sm: '40%', md: '30%' }, bgcolor: 'primary.main', position: 'fixed', top: '28%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999 }}>
             <CardContent>
                 <Typography variant='subtitle' sx={{ color: 'white' }}>{text}</Typography>
             </CardContent>
@@ -27,13 +27,13 @@ const InfoBox = ({ text, link, btnText }) => {
 
 const renderContent = {
     1: (
-        <Card sx={{ width: { xs: '90%', sm: '40%', md: '30%' }, bgcolor: 'primary.main', position: 'fixed', top: '28%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999, boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)' }}>
+        <Card variant='solid' color="primary" sx={{ width: { xs: '90%', sm: '40%', md: '50%' }, bgcolor: 'primary.main', position: 'fixed', top: '16%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 9999, boxShadow: '0px 8px 16px rgba(0, 0, 0, 0.2)' }}>
             <CardContent sx={{display:'flex', flexDirection:'column', alignItems:'center', }}>
-                <Typography gutterBottom variant="subtitle" sx={{ color: 'primary.contrastText'}}>
-                    Hey there, I&apos;m Preetham 👋
+                <Typography gutterBottom variant="h4" sx={{ color: 'primary.contrastText'}}>
+                    Welcome to the world of 3D portfolios👋
                 </Typography>
                 <Typography variant="body2" sx={{ color: 'primary.contrastText' }}>
-                    A software enthusiast from India
+                    Have glimpse of my journey as a developer here🚀
                 </Typography>
             </CardContent>
         </Card>

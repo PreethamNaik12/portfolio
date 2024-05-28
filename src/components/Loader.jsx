@@ -9,7 +9,7 @@ const Spinner = () => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 flexDirection: 'column',
-                height: '90vh',
+                height: '100%',
             }}>
                 <div className="loading">
                     <svg width="85px" height="56px">

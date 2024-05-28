@@ -32,13 +32,19 @@ export const frameworks = [
     ['/threejs.png', 'ThreeJS'],
     ['/mui.png', 'MaterialUI'],
     ['/bootstrap.png', 'Bootstrap'],
+    ['/numpy.png', 'Numpy'],
+    ['/pandas.svg', 'Pandas'],
+    ['/matplotlib.png', 'Matplotlib'],
+    ['/seaborn.png', 'Seaborn'],
 ]
 export const tools = [
-    ['/chatgpt.png', 'ChatGPT'],
     ['/vscode.webp', 'VS Code'],
+    ['/git.png', 'Git'],
     ['/github.png', 'GitHub'],
+    ['/chatgpt.png', 'ChatGPT'],
     ['/postman.png', 'Postman'],
     ['/postgre.png', 'PostgreSQL'],
-    ['/git.png', 'Git'],
-    // ['/vite.png', 'Vite'],
+    ['/vite.png', 'Vite'],
+    ['/collab.png', 'Collab'],
+    ['/jupyter.png', 'Jupyter'],
 ];
