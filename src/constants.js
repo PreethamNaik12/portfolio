@@ -18,24 +18,26 @@ export const socialIcons = [
 
 
 export const langs = [
+    ['/js.png', 'JavaScript'],
+    ['/python.png', 'Python'],
+    ['/c++.png', 'C++'],
     ['/html.png', 'HTML'],
     ['/css-3.png', 'CSS'],
-    ['/js.png', 'JavaScript'],
-    ['/c++.png', 'C++'],
-    ['/python.png', 'Python'],
 ];
 
 export const frameworks = [
     ['/react.png', 'ReactJS'],
-    ['/nextjs.png', 'NextJS'],
-    ['/ror.png', 'Rails'],
-    ['/threejs.png', 'ThreeJS'],
+    // ['/nextjs.png', 'NextJS'],
+    // ['/ror.png', 'Rails'],
     ['/mui.png', 'MaterialUI'],
     ['/bootstrap.png', 'Bootstrap'],
+    ['/threejs.png', 'ThreeJS'],
+    ['/django.png', 'Django'],
     ['/numpy.png', 'Numpy'],
     ['/pandas.svg', 'Pandas'],
     ['/matplotlib.png', 'Matplotlib'],
     ['/seaborn.png', 'Seaborn'],
+    ['/pytorch.png', 'Pytorch'],
 ]
 export const tools = [
     ['/vscode.webp', 'VS Code'],

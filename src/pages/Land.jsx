@@ -155,7 +155,7 @@ const Land = () => {
 
             {/* skills */}
             <Typography variant="h3" color="initial" sx={{ fontWeight: '600', fontFamily: 'Gabarito', textAlign: 'center', mb:5, mt: 7 }}>Skills</Typography>
-            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2, flexWrap:'wrap' }}>
                 <MySkills />
             </Box>
             
