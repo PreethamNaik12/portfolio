@@ -1,4 +1,4 @@
-# Preetham's New Portfolio
+# Preetham Naik's New Portfolio
 
 Welcome to my portfolio website! This is a personal project showcasing my skills, projects, and experience in web development and machine learning.
 
